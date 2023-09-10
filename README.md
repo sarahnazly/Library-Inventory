@@ -47,7 +47,6 @@ Link App Adaptable :  https://sarah-library.adaptable.app
 2. Bagan *request client* ke web aplikasi Django dan kaitannya antara urls.py, views.py, models.py, dan berkas HTML
 
 : Bagan :
-![image](https://github.com/sarahnazly/Library-Inventory/assets/124890873/279c5326-de78-41df-afcc-8f4491591794)
 
         **Client's Web Browser**
                     |
