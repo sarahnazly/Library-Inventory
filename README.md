@@ -46,6 +46,7 @@ Setelah selesai saya melakukan *deactivate* pada virtual environment karena tela
 
 2. Bagan *request client* ke web aplikasi Django dan kaitannya antara urls.py, views.py, models.py, dan berkas HTML
 
+![Alt text](image.png)
 Bagan :
     **Client's Web Browser**
                 |
