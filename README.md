@@ -49,9 +49,11 @@ Link App Adaptable :  https://sarah-library.adaptable.app
 : Bagan :
 
         **Client's Web Browser**
+                    ^
                     |
                     v
         **Django Web Application**
+                    ^
                     |
                     v
                     |
@@ -59,6 +61,9 @@ Link App Adaptable :  https://sarah-library.adaptable.app
                     |                 |
                     v                 v
                 **models.py**   **items.html**
+                    |
+                    v
+                **database**
 
 : **Client Web Browser** sebuah *request* dimulai dari web browser pengguna atau *client* ketika mereka memasukkan URL atau mengklik link. Kemudian permintaan tersebut akan diterima oleh aplikasi **web yang berbasis Django** dan diproses serta mengirimkan respon kembali ke *client*. File **urls.py** bertanggung jawab untuk menentukan bagaimana permintaan URL ini akan diarahkan dan menghubungkan URL yang diterima dari *client* dengan fungsi tindakan yag disesuaikan pada **views.py**. Ketika permintaan URL diteruskan oleh **urls.py**, **views.py** mengambil alih untuk memproses permintaan tersebut. **views.py** dapat mengakses model untuk memproses data dan merender **items.html** atau mengembalikan respins JSON, tergantung pada kasus penggunaan. **models.py** akan menggambarkan struktur data dalam aplikasi dan memberikan definisi model yang digunakan untuk berinteraksi dengan database atau data lainnya. **models.py** dapat digunakan oleh **views.py** untuk mengambil atau penyimpan data. **items.html** digunakan untuk mengatur tampila yang akan diberikan kepada pengguna atau *client*. **views.py** dapat merender **items.html** dengan data yang diambil dari model dan kemudian mengirimkannya kembali ke *client* sebagai respons HTML yang siap ditampilkan.
 
