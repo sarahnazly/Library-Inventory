@@ -320,7 +320,7 @@ path('json/<int:id>/', views.json_by_id, name='json_by_id'),
 
 ## Menggunakan Postman Sebagai Data *Viewer*
 1. Tampilan Halaman Utama Program Library Inventory
-![Tampilan Main Page](Postman_Main_Page.jpg)
+![Tampilan Main Page](Main.jpg)
 2. Tampilan Data dalam XML
 3. Tampilan Data dalam XML dengan ID 5
 4. Tampilan Data dalam JSON
