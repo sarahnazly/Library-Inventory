@@ -75,7 +75,6 @@ Setelah selesai saya melakukan *deactivate* pada virtual environment karena tela
 
 <h1>Bagan request client ke web aplikasi Django dan kaitannya antara urls.py, views.py, models.py, dan berkas HTML</h1>
 
-Bagan 
 
         **Client's Web Browser**
                     ^
