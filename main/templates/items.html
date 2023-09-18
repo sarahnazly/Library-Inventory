@@ -1,8 +1,42 @@
-<h1>Library Inventory Page</h1>
+{% extends 'base.html' %}
 
-<h5>Application Name : </h5>
-<p>{{ application }}</p>
-<h5>Name : </h5>
-<p>{{ name }}</p>
-<h5>Class : </h5>
-<p>{{ class }}</p>
+{% block content %}
+<h1>Library Inventory</h1>
+
+    <h5>Name    :</h5>
+    <p>{{ name }}</p>
+
+    <h5>Class   :</h5>
+    <p>{{ class }}</p>
+
+    <p>Kamu telah meminjam {{ books|length }} buku dengan total {{ total_book }} item pada aplikasi ini.</p>
+
+<table>
+    <tr>
+        <th>Book Name</th>
+        <th>Amount</th>
+        <th>Category</th>
+        <th>Borrow Date</th>
+        <th>Description</th>
+    </tr>
+
+    {% for item in books %}
+        <tr>
+            <td>{{item.name}}</td>
+            <td>{{item.amount}}</td>
+            <td>{{item.category}}</td>
+            <td>{{item.borrow_date}}</td>
+            <td>{{item.description}}</td>
+        </tr>
+    {% endfor %}
+</table>
+
+<br />
+
+<a href="{% url 'main:borrow-books' %}">
+    <button>
+        Add New Book
+    </button>
+</a>
+
+{% endblock content %}
