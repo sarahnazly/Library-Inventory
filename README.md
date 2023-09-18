@@ -31,7 +31,11 @@ Setelah memiliki proyek Django, saya membuat aplikasi `main` dalam direktori pro
 
 <h2>Melakukan Routing</h2>
 
-Langkah ini dilakukan untuk mengarahkan URL ke aplikasi main yang telah dbuat. Hal ini dilakukan dengan menambahkan routing ke file `urls.py` yang ada pada direktori proyek library_inventory dengan menambahkan `path('', include('main.urls'))`. Dengan begitu semua permintaan ke URL utama akan diteruskan ke main untuk diproses.
+Langkah ini dilakukan untuk mengarahkan URL ke aplikasi main yang telah dbuat. Hal ini dilakukan dengan menambahkan routing ke file `urls.py` yang ada pada direktori proyek `library_inventory` dengan menambahkan kode berikut.
+```python
+path('', include('main.urls'))
+``` 
+Dengan begitu semua permintaan ke URL utama akan diteruskan ke main untuk diproses.
 
 <h2>Membuat Model Item</h2>
 
@@ -69,7 +73,7 @@ Setelah semuanya selesai, saya membuat file `README.md` ini yang berisikan link 
 
 Setelah selesai saya melakukan *deactivate* pada virtual environment karena telah selesai digunakan.
 
-<h1>Bagan *request client* ke web aplikasi Django dan kaitannya antara urls.py, views.py, models.py, dan berkas HTML</h1>
+<h1>Bagan request client ke web aplikasi Django dan kaitannya antara urls.py, views.py, models.py, dan berkas HTML</h1>
 
 Bagan 
 
