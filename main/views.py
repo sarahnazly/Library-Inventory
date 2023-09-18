@@ -21,6 +21,7 @@ def items(request) :
     
     return render(request, 'items.html', context)
 
+# Fungsi form peminjaman buku
 def borrow_books(request):
     form = ItemForm(request.POST or None)
 
@@ -31,21 +32,25 @@ def borrow_books(request):
     context = {'form' : form}
     return render(request, "borrow_books.html", context)
 
+# Fungsi untuk mengubah data dalam XML
 def show_xml(request):
     data = Item.objects.all()
     
     return HttpResponse(serializers.serialize("xml", data), content_type='application/xml')
 
+# Fungsi untuk mengubah data dalam JSON
 def show_json(request):
     data = Item.objects.all()
 
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
 
+# Fungsi untuk mengambil data XML sesuai ID
 def xml_by_id(request, id):
     data = Item.objects.filter(pk=id)
 
     return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
 
+# Fungsi untuk mengambil data JSON sesuai ID
 def json_by_id(request, id):
     data = Item.objects.filter(pk=id)
 

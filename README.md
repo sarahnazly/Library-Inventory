@@ -102,6 +102,10 @@ Kita tetap dapat membuat aplikasi Django tanpa virtual environment, namun hal te
 - https://pbp-fasilkom-ui.github.io/ganjil-2024/
 - https://www.petanikode.com/python-virtualenv/
 
+</details>
+
+<details>
+
 <summary> Tugas 3 </summary>
 
 <h1>Perbedaan POST dan GET dalam Django</h1>

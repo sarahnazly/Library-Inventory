@@ -1,8 +1,10 @@
 from django.urls import path 
 from . import views
 
+# Definisi Namespace
 app_name = 'main'
 
+# Kumpulan route ke views.p
 urlpatterns = [
     path('', views.items, name = 'items'),
     path('borrow-books/', views.borrow_books, name='borrow-books'),
