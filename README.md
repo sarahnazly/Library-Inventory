@@ -111,10 +111,10 @@ Kita tetap dapat membuat aplikasi Django tanpa virtual environment, namun hal te
 <h1>Perbedaan POST dan GET dalam Django</h1>
 
 1. POST 
-form POST digunakan untuk melakukan pengiriman data ke server dalam permintaan HTTP. Data tersebut tidak ditampilkan dalam URL dan form POST digunakan ketika user ingin mengirim data yang sensitif atau besar. form POST tidak dibatasi oleh panjang string dan lebih aman. Pengambilan variable dilakukan dengan `request.POST.get`, form POST ini juga biasanya digunakan untuk input data melalui form.
+<p>form POST digunakan untuk melakukan pengiriman data ke server dalam permintaan HTTP. Data tersebut tidak ditampilkan dalam URL dan form POST digunakan ketika user ingin mengirim data yang sensitif atau besar. form POST tidak dibatasi oleh panjang string dan lebih aman. Pengambilan variable dilakukan dengan `request.POST.get`, form POST ini juga biasanya digunakan untuk input data melalui form.</p>
 
 2. GET
-form GET digunakan untuk mengambil data dari server. Data dikirimkan sebagai bagian dari URL, sehingga dapat dilihat oleh semua orang yang melihat URL tersebut, sehingga form GET digunakan untuk permintaan pencarian atau pengambilan data yang tidak sensitif. form GET cenderung tidak aman dan memiliki batasan panjang string yang hanya sampai 2047 karakter. Pengambilan variabel dapat dilakukan dengan `request.GET.get('query', '')`.
+<p>form GET digunakan untuk mengambil data dari server. Data dikirimkan sebagai bagian dari URL, sehingga dapat dilihat oleh semua orang yang melihat URL tersebut, sehingga form GET digunakan untuk permintaan pencarian atau pengambilan data yang tidak sensitif. form GET cenderung tidak aman dan memiliki batasan panjang string yang hanya sampai 2047 karakter. Pengambilan variabel dapat dilakukan dengan `request.GET.get('query', '')`.</p>
 
 <h1>Perbedaan Utama XML, JSON, dan HTML dalam Pengiriman Data</h1>
 
@@ -123,17 +123,20 @@ form GET digunakan untuk mengambil data dari server. Data dikirimkan sebagai bag
 - **Struktur** : XML memiliki struktur yang ketat dan harus mengikuti aturan sintaksis yang sesuai. Data dalam XML didefinisikan oleh tag dan atribut.
 - **Fleksibilitas** : XML sangat fleksibel dan dapat digunakan untuk mewakili berbagai jenis data yang terstruktur.
 - **Pemrosesan** : Parsing XML memerlukan upaya lebih dalam pengelolaan data karena XML cenderung lebih lengkap dan formal.
+- **Penggunaan Umum** : XML sering digunakan untuk pertukaran data antara aplikasi yang berbeda, seperti Web Services dan konfigurasi file.
 
 2. JSON (JavaScript Object Notation)
 - **Tujuan Utama** : JSON digunakan untuk pertukaran data ringan dan pembacaan oleh mesin antara aplikasi web dan server.
 - **Struktur** : JSON memiliki struktur yang lebih sederhana dibandingkan XML. Data dalam JSON didefinisikan dalam format pasangan "key-value" yang mirip dengan objek JavaScript.
 - **Fleksibilitas** : JSON cocok untuk data terstruktur seperi array dan objek. JSON lebih cocok untuk data yang akan digunakan dalam bahasa pemrograman modern.
 - **Pemrosesan** : Parsing JSON lebih mudah dan lebih cepat karena formatnya lebih ringkas dan sesuai dengan JavaScript.
+- **Penggunaan Umum** : JSON digunakan secara luas dalam pengembangan aplikasi web modern dan sebagai format data dalam RESTful API.
 
 3. HTML (Hypertext Markup Language)
 - **Tujuan Utama** : HTML digunakan untuk membuat struktur dan tampilan halaman web, bukan untuk pertukaran data. Namun, dapat digunakan untuk menampilkan data dalam format yang dapat dibaca oleh manusia.
 - **Struktur** : HTML memiliki struktur yang khusus untuk membuat elemen-elemen tampilan seperti paragraf, tabel, gambar, dan hyperlink.
 - **Fleksibilitas** : HTML tidak sefleksibel XML atau JSON dalam hal menggambarkan data terstruktur. HTML lebih terfokus pada presentasi data.
+- **Penggunaan Umum** : HTML adalah bahasa standar untuk membuat halaman web. Browser web dapat menginterpretasikan HTML dan menampilkannya sebagai halaman web yang dapat dilihat oleh pengguna.
 
 <h1>Alasan Digunakannya JSON Pada Web Modern</h1>
 
@@ -181,7 +184,7 @@ def borrow_books(request):
 
 form pada kode tersebut digunakan untuk membuat form item baru berdasarkan input dari user dengan menggunakan form POST dan melakukan redirect ke `items` setelah data pada form berhasil disimpan.
 
-<h2>Mengubah fungsi `items` untuk memanggil objek buku pada *database*</h2>
+<h2>Mengubah fungsi `items` untuk memanggil objek buku pada database</h2>
 
 Untuk mengambil object pada database, di fungsi `items` dilakukan pengubahan menjadi seperti berikut.
 
@@ -379,9 +382,18 @@ perhitungan `total_book` telah dilakukan pada `views.py` dengan kode berikut.
 total_book = sum([book.amount for book in books])
 ...
 ```
+sementara untuk `{{ books|length }}` berarti program mengambil jumlah elemen yang terdapat dalam `books`.
 
 <h2>Melakukan Add, Commit, dan Push ke GitHub</h2>
 
 Kita dapat melakukan `add` dari semua file yang diperbarui dengan perintah `git add .`, kemudian melakukan `commit` "Tugas 3" dengan perintah `git commit -m "Tugas 3"`, dan yang terakhir melakukan `push` ke repository GitHub dengan perintah `git push -u origin main`.
+
+<h1>Referensi</h1>
+
+- https://pbp-fasilkom-ui.github.io/ganjil-2024/docs/tutorial-2
+- https://gist.github.com/rririanto/442f0590578ca3f8648aeba1e25f8762
+- https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON
+- https://developer.mozilla.org/en-US/docs/Web/HTML
+- https://www.w3schools.com/xml/
 
 </details>
