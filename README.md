@@ -1,4 +1,8 @@
 # Penjelasan Tugas PBP
+Nama    : Sarah Nazly Nuraya
+NPM     : 2206082581
+Kelas   : PBP-A
+
 Link App Adaptable :  https://sarah-library.adaptable.app
 
 <details>
@@ -341,30 +345,30 @@ path('xml/<int:id>/', views.xml_by_id, name='xml_by_id'),
 path('json/<int:id>/', views.json_by_id, name='json_by_id'),
 ```
 
-<h2>Menggunakan Postman Sebagai Data *Viewer*</h2>
+<h2>Menggunakan Postman Sebagai Data Viewer</h2>
 
-1. Tampilan Halaman Utama Program Library Inventory
+<h3>Tampilan Halaman Utama Program Library Inventory</h3>
 
 ![Tampilan Main Page](Postman/Main.jpg)
 
-2. Tampilan Data dalam XML
+<h3>Tampilan Data dalam XML</h3>
 
 ![Tampilan Data XML](Postman/XML1.jpg)
 ![Tampilan Data XML](Postman/XML2.jpg)
 ![Tampilan Data XML](Postman/XML3.jpg)
 
-3. Tampilan Data dalam XML dengan ID 5
+<h3>Tampilan Data dalam XML dengan ID 5</h3>
 
 ![Tampilan Data XML ID 5](Postman/XMLID5.jpg)
 
-4. Tampilan Data dalam JSON
+<h3>Tampilan Data dalam JSON</h3>
 
 ![Tampilan Data JSON](Postman/JSON1.jpg)
 ![Tampilan Data JSON](Postman/JSON2.jpg)
 ![Tampilan Data JSON](Postman/JSON3.jpg)
 ![Tampilan Data JSON](Postman/JSON4.jpg)
 
-5. Tampilan Data dalam JSON dengan ID 5
+<h3>Tampilan Data dalam JSON dengan ID 5</h3>
 
 ![Tampilan Data JSON ID 5](Postman/JSONID5.jpg)
 
