@@ -102,8 +102,6 @@ Kita tetap dapat membuat aplikasi Django tanpa virtual environment, namun hal te
 - https://pbp-fasilkom-ui.github.io/ganjil-2024/
 - https://www.petanikode.com/python-virtualenv/
 
-</details>
-
 <summary> Tugas 3 </summary>
 
 <h1>Perbedaan POST dan GET dalam Django</h1>
@@ -381,3 +379,5 @@ total_book = sum([book.amount for book in books])
 <h2>Melakukan Add, Commit, dan Push ke GitHub</h2>
 
 Kita dapat melakukan `add` dari semua file yang diperbarui dengan perintah `git add .`, kemudian melakukan `commit` "Tugas 3" dengan perintah `git commit -m "Tugas 3"`, dan yang terakhir melakukan `push` ke repository GitHub dengan perintah `git push -u origin main`.
+
+</details>
