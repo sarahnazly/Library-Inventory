@@ -1,6 +1,8 @@
 # Penjelasan Tugas PBP
 Nama    : Sarah Nazly Nuraya
+
 NPM     : 2206082581
+
 Kelas   : PBP-A
 
 Link App Adaptable :  https://sarah-library.adaptable.app
