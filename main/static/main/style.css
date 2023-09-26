@@ -17,7 +17,7 @@ body {
 }
 
 .header {
-    background-color: #283645; /* Ganti warna background header */
+    background-color: #283645;
     color: #fff;
     padding: 20px;
     text-align: center;
@@ -35,8 +35,8 @@ body {
 
 .table-container {
     margin-top: 20px;
-    background-color: #283645; /* Ganti warna background table-container */
-    padding: 20px; /* Tambahkan padding agar kontennya tidak terlalu dekat dengan tepi */
+    background-color: #283645; 
+    padding: 20px; 
     border-radius: 5px;
 }
 
@@ -101,9 +101,9 @@ table tr:nth-child(even) {
     transition: background-color 0.3s;
 }
 
-.add-book-button a:hover {
+/* .add-book-button a:hover {
     background-color: #283645;
-}
+} */
 
 .logout-button {
     text-align: right;
