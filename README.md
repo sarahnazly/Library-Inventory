@@ -412,7 +412,18 @@ sementara untuk `{{ books|length }}` berarti program mengambil jumlah elemen yan
 
 <h2>Melakukan Add, Commit, dan Push ke GitHub</h2>
 
-Kita dapat melakukan `add` dari semua file yang diperbarui dengan perintah `git add .`, kemudian melakukan `commit` "Tugas 3" dengan perintah `git commit -m "Tugas 3"`, dan yang terakhir melakukan `push` ke repository GitHub dengan perintah `git push -u origin main`.
+Kita dapat melakukan `add` dari semua file yang diperbarui dengan perintah 
+```bash
+git add .
+``` 
+kemudian melakukan `commit` "Tugas 4" dengan perintah 
+```bash
+git commit -m "Tugas 4"
+``` 
+dan yang terakhir melakukan `push` ke repository GitHub dengan perintah
+```bash
+git push -u origin main
+```
 
 <h1>Referensi</h1>
 
@@ -421,5 +432,349 @@ Kita dapat melakukan `add` dari semua file yang diperbarui dengan perintah `git 
 - https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON
 - https://developer.mozilla.org/en-US/docs/Web/HTML
 - https://www.w3schools.com/xml/
+
+</details>
+
+<details>
+
+<summary> Tugas 4 </summary>
+
+<h1>Django UserCreationForm beserta Kelebihan dan Kekurangannya</h1>
+
+**Django UserCreationForm** merupakan salah satu bentuk formulir bawaan dari Django yang disediakan oleh modul `django.contrib.auth.forms`. Form ini digunakan untuk membuat dan mendaftarkan pengguna baru di aplikasi web Django. Form ini umumnya digunakan dengan field umum seperti username, password, dan konfirmasi ulang password.
+
+<h2>Kelebihan</h2>
+
+- **Mudah digunakan** : Django UserCreationForm sudah memiliki validasi bawaan untuk memastikan bahwa user memasukkan data yang benar pada form.
+- **Integrasi dengan Django Authentication** : UserCreationForm dirancang untuk bekerja dengan sistem authentication Django yang sudah ada. Hal ini membuat user dapat secara otomatis masuk dengan menggubakan akun yang baru dibuat.
+
+<h2>Kekurangan</h2>
+
+- **Kustomisasi Terbatas** : UserCreationForm ini memiliki field ataupun validasi yang terbatas.
+- **Tampilan Baku** : Untuk membuat tampilan yang lebih kompleks, user dapat menyesuaikannya secara manual karena tampilan default yang diberikan hanyalah tampilan yang sangat sederhana.
+
+<h1>Perbedaan dan Pentingnya Authentication dan Authorization</h1>
+
+<h2>Authentication</h2>
+
+Autentikasi merupakan proses verifikasi identitas dari user. Proses autentikasi ini melibatkan verifikasi apakah user telah terdaftar dan memasukkan data username dan password yang valid.
+
+<h2>Authorization</h2>
+
+Otorisasi merupakan proses pemutusan apa yang diperbolehkan atau tidak diperbolehkan oleh user yang telah di autentikasi. Pada proses ini sistem akan menentukan izin atau akses user ke berbagai bagian aplikasi sesuai dengan autentikasi yang telah dilakukan.
+
+<h2>Pentingnya Authentication dan Authorization</h2>
+
+Kedua hal tersebut penting karena dapat membantu sistem untuk melindungi data dan sumber daya yang terdapat pada suatu aplikasi web dari akses yang berbahaya dan juga memungkinkan user untuk mendapatkan akses ke bagian yang mereka butuhkan.
+
+<h1>Cookies</h1>
+
+Cookies merupakan file yang dibuat oleh web yang sedang dibuka oleh user. Cookies akan menyimpan informasi terkait kunjungan user pada sebuah web seperti menyimpan status login user, mengingat preferensi web user, dan juga memberikan konten lokal yang sesuai dengan user.
+
+Dalam web Django, cookies digunakan untuk mengelola data sesi user dengan bantuan modul `django.contrib.sessions.middleware.SessionMiddleware`. Pada dasarnya ketika user menggunakan sesi suatu web, data tidak disimpan secara langsung pada browser, melainkan disimpan di server. Django menggunakan string acak unik yang akan mengaitkan kunci sesi dengan data sesi. Dengan begitu server dapat mengirim cookie ke browser dan pada permintaan berikutnya browser akan mengirimkan cookie ke server. Django akan menggunakan cookie tersebut untuk mengambil data sesi dan membuatnya dapat diakses dalam kode user.
+
+<h1>Keamanan Penggunaan Cookies</h1>
+
+Penggunaan dari cookies dalam sebuah pengembangan web tidak selalu aman secara default. Berikut merupakan beberapa risiko potensial yang harus diwaspadai.
+
+- **Keamanan Data** : Data yang telah disimpan dalam cookies dapat dilihat oleh siapa saja yang memiliki akses ke komputer atau perangkat pengguna. Oleh karena itu data pribadi yang cukup sensitive seperti password atau data keuangan tidak boleh disimpan dalam cookies.
+
+- **Manipulasi Cookies** : Cookies dapat dimanipulasi oleh user ataupun seorang penyerang untuk mengubah atau memalsukan data sesi. Oleh karena itu, harus dilakukan enkripsi cookies yang berisi informasi sensitif.
+
+- **Cookie Theft** : Data pada cookies dapat dicuri oleh serangan seperti *session hijacking* atau *cross-site scripting* (XSS). Oleh karena itu, harus diimplementasikannya langkah-langkah keamanan tambahan seperti *secure cookies* (HSTS) pada pengembangan web dan mengamankan web aplikasi dari serangan XSS.
+
+<h1>Implementasi Checklist</h1>
+
+<h2>Mengaktifkan Virtual Environment</h2>
+
+Sebelum melakukan perubahan pada program dan melakukan implementasi checklist kita harus mengaktifkan `virtual environment` agar tidak terjadi penumpukan dari proyek yang sedang dijalankan. Proses untuk mengaktifkan virtual environment pada proyek dapat dilakukan dengan `env\Scripts\activate.bat`.
+
+<h2>Implementasi Fungsi Registrasi, Login, dan Logout</h2>
+
+<h3>Register</h3>
+
+Dalam file `views.py` buat fungsi `register` yang akan menerima parameter `request`. Untuk membuat fungsi ini, kita perlu menambahkan beberapa import berikut.
+
+```python
+from django.shortcuts import redirect
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib import messages   
+```
+UserCreationForm akan membuat formulir bawaan yang dapat diakses oleh user untuk melakukan pendaftaran akun dalam web. Kemudian untuk mengaplikasikan form tersebut maka dapat dibuat fungsi `register` berikut.
+
+```python
+def register(request):
+    form = UserCreationForm()
+
+    if request.method == "POST":
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Your account has been successfully created!')
+            return redirect('main:login')
+    context = {'form':form}
+    return render(request, 'register.html', context)
+```
+Untuk memberikan tampilan register dalam web proyek, maka kita dapat membuat file `register.html` sebagai berikut.
+
+```html
+{% extends 'base.html' %}
+
+{% block meta %}
+    <title>Register</title>
+{% endblock meta %}
+
+{% block content %}  
+
+<div class = "login">
+    
+    <h1>Register</h1>  
+
+        <form method="POST" >  
+            {% csrf_token %}  
+            <table>  
+                {{ form.as_table }}  
+                <tr>  
+                    <td></td>
+                    <td><input type="submit" name="submit" value="Daftar"/></td>  
+                </tr>  
+            </table>  
+        </form>
+
+    {% if messages %}  
+        <ul>   
+            {% for message in messages %}  
+                <li>{{ message }}</li>  
+                {% endfor %}  
+        </ul>   
+    {% endif %}
+
+</div>  
+
+{% endblock content %}
+```
+Agar fungsi `Register` dapat diakses oleh user, maka kita dapat menambahkan `urlpatterns` pada `urls.py` sebagai berikut.
+```python
+...
+path('register/', views.register, name='register'),
+...
+```
+
+<h3>Login</h3>
+
+Setelah berhasil melakukan register, maka user sudah dapat melakukan proses login dengan memasukkan username dan password yang telah dibuat saat register. Dengan begitu kita dapat menambahkan fungsi `login_user` dengan menambahkan import `authenticate` seperti berikut.
+```python
+from django.contrib.auth import authenticate, login
+
+def login_user(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('main:items')
+        else:
+            messages.info(request, 'Sorry, incorrect username or password. Please try again.')
+    context = {}
+    return render(request, 'login.html', context)
+```
+Untuk memberikan tampilan form login pada web maka dapat diberikan program html sebagai berikut
+```html
+{% extends 'base.html' %}
+
+{% block meta %}
+    <title>Login</title>
+{% endblock meta %}
+
+{% block content %}
+
+<div class = "login">
+
+    <h1>Login</h1>
+
+    <form method="POST" action="">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <td>Username: </td>
+                <td><input type="text" name="username" placeholder="Username" class="form-control"></td>
+            </tr>
+                    
+            <tr>
+                <td>Password: </td>
+                <td><input type="password" name="password" placeholder="Password" class="form-control"></td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td><input class="btn login_btn" type="submit" value="Login"></td>
+            </tr>
+        </table>
+    </form>
+
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}     
+        
+    Don't have an account yet? <a href="{% url 'main:register' %}">Register Now</a>
+
+</div>
+
+{% endblock content %}
+```
+Agar fungsi `Login` dapat diakses oleh user, maka kita dapat menambahkan `urlpatterns` pada `urls.py` sebagai berikut.
+```python
+...
+path('login/', views.login_user, name='login'),
+...
+```
+
+<h3>Logout</h3>
+
+Apabila user telah selesai melakukan pengelolaan produk, maka user dapat melakukan `logout` dari sistem web. Untuk dapat melakukan logout maka kita dapat membuat fungsi `logout_user` pada file `views.py` seperti berikut.
+```python
+from django.contrib.auth import logout
+
+def logout_user(request):
+    logout(request)
+    return redirect('main:login')
+```
+Untuk dapat mengakses sistem `logout` maka dapat ditambahkan *button* `logout` pada `items.html` seperti berikut.
+```html
+...
+<div class="logout-button">
+        <a href="{% url 'main:logout' %}">Logout</a>
+    </div>
+...
+```
+Agar fungsi `logout` dapat diakses oleh user, maka kita dapat menambahkan `urlpatterns` pada `urls.py` sebagai berikut.
+```python
+...
+path('logout/', logout_user, name='logout'),
+...
+```
+<h2>Membuat Dummy Data Pada 2 Akun</h2>
+
+Untuk memastikan kinerja dari program berjalan dengan baik, maka saya melakukan registrasi pada dua akun berikut dan menambahkan 3 buah data buku dummy beserta stok penyimpanannya.
+
+<h3>Akun 1</h3>
+
+username : mu_mu
+password : mumu1234
+
+Tampilan Website 
+![Tampilan Akun Mumu](Web/Akun-1.jpg)
+
+<h3>Akun 2</h3>
+
+username : miawiw_
+password : pbp12345
+
+Tampilan Website
+![Tampilan Akun Miawiw](Web/Akun-2.jpg)
+
+<h2>Menghubungkan Model Item dan User</h2>
+
+Pada bagian ini kita ingin hanya pengguna yang sudah diotorisasi yang dapat melihat produk-produk yang telah dibuat. Untuk melakukan hal tersebut maka hal yang harus dilakukan adalah menambahkan kode `user` pada file `models.py` seperti berikut.
+```python
+...
+from django.contrib.auth.models import User
+...
+
+class Item(models.Model) :
+    user = models.ForeignKey(User, on_delete=models.CASCADE)    
+    ...
+```
+Dengan adanya kode tersebut, maka item akan memiliki hubungan dan terasosiasi dengan user. Untuk itu selain menambahkan user pada `models.py`, kita juga melakukan perubahan di file `views.py` pada fungsi `added_books` agar Django memberikan akses untuk mengubah suatu objek terlebih dahulu sebelum disimpan ke database seperti berikut.
+```python
+def added_books(request):
+    form = ItemForm(request.POST or None)
+
+    if form.is_valid() and request.method == 'POST':
+        books = form.save(commit=False)
+        books.user = request.user
+        books.save()
+        return HttpResponseRedirect(reverse('main:items'))
+...
+```
+
+<h2>Detail Informasi Pengguna dan Last Login pada Laman Utama</h2>
+
+Agar tampilan yang diberikan oleh program kepada user adalah menampilkan username, maka `name` pada fungsi `items` diubah sebagai berikut.
+```python
+def items(request) :
+    books = Item.objects.filter(user=request.user)
+
+    total_book = sum([book.amount for book in books])
+    
+    context = {
+        'application' : 'Library Inventories',
+        'name' : request.user.username,
+        ...
+    }
+...
+```
+
+Untuk menampilkan `last login` yang dilakukan oleh user, maka kita dapat menggunakan data dari cookies dan menampilkannya di halaman main dari program. Kita dapat menambahkan beberapa import modul dan menambahkan cookie `last_login` untuk mendapatkan data kapan terakhir user melakukan login pada web.
+```python
+import datetime
+from django.http import HttpResponseRedirect
+from django.urls import reverse
+
+...
+    if user is not None:
+            login(request, user)
+            response = HttpResponseRedirect(reverse("main:items")) 
+            response.set_cookie('last_login', str(datetime.datetime.now()))
+            return response
+...
+```
+Kemudian kita dapat memasukkan variabel `last_login` ke dalam variabel `context` seperti berikut.
+```python
+...
+'last_login' : request.COOKIES['last_login'],
+...
+``` 
+Untuk menampilkan data `last_login` pada halaman main web, maka kita dapat menambahkannya ke dalam `items.html` seperti berikut.
+```html
+...
+<h5>Sesi terakhir login: {{ last_login }}</h5>
+...
+```
+Kemudian, untuk menghapus cookie `last_login` user ketika melakukan `logout`, maka pada fungsi `logout_user` dapat menjadi seperti berikut.
+```python
+def logout_user(request):
+    logout(request)
+    response = HttpResponseRedirect(reverse('main:login'))
+    response.delete_cookie('last_login')
+    return response
+```
+
+<h2>Melakukan Add, Commit, dan Push ke GitHub</h2>
+
+Kita dapat melakukan `add` dari semua file yang diperbarui dengan perintah 
+```bash
+git add .
+``` 
+kemudian melakukan `commit` "Tugas 4" dengan perintah 
+```bash
+git commit -m "Tugas 4"
+``` 
+dan yang terakhir melakukan `push` ke repository GitHub dengan perintah
+```bash
+git push -u origin main
+```
+
+<h1>Referensi</h1>
+
+- https://pbp-fasilkom-ui.github.io/ganjil-2024/docs/tutorial-3
+- https://www.javatpoint.com/django-usercreationform
+- https://support.google.com/chrome/answer/95647?hl=id&co=GENIE.Platform%3DDesktop#:~:text=Cookie%20adalah%20file%20yang%20dibuat,lokal%20yang%20sesuai%20dengan%20Anda.
+- https://betterprogramming.pub/managing-sessions-in-django-92ef72db4c63
 
 </details>
