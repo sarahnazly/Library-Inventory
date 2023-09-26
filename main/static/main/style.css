@@ -17,7 +17,7 @@ body {
 }
 
 .header {
-    background-color: #007bff;
+    background-color: #283645; /* Ganti warna background header */
     color: #fff;
     padding: 20px;
     text-align: center;
@@ -35,6 +35,9 @@ body {
 
 .table-container {
     margin-top: 20px;
+    background-color: #283645; /* Ganti warna background table-container */
+    padding: 20px; /* Tambahkan padding agar kontennya tidak terlalu dekat dengan tepi */
+    border-radius: 5px;
 }
 
 table {
@@ -49,7 +52,7 @@ table th, table td {
 }
 
 table th {
-    background-color: #007bff;
+    background-color: #283645;
     color: #fff;
 }
 
@@ -67,7 +70,7 @@ table tr:nth-child(even) {
     margin-right: 10px;
     text-decoration: none;
     color: #fff;
-    background-color: #007bff;
+    background-color: #283645;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -79,7 +82,7 @@ table tr:nth-child(even) {
 }
 
 .actions a:hover {
-    background-color: #0056b3;
+    background-color: #283645;
 }
 
 .add-book-button {
@@ -91,7 +94,7 @@ table tr:nth-child(even) {
     padding: 10px 20px;
     text-decoration: none;
     color: #fff;
-    background-color: #007bff;
+    background-color: #283645;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -99,7 +102,7 @@ table tr:nth-child(even) {
 }
 
 .add-book-button a:hover {
-    background-color: #0056b3;
+    background-color: #283645;
 }
 
 .logout-button {

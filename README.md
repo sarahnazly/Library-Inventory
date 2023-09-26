@@ -416,9 +416,9 @@ Kita dapat melakukan `add` dari semua file yang diperbarui dengan perintah
 ```bash
 git add .
 ``` 
-kemudian melakukan `commit` "Tugas 4" dengan perintah 
+kemudian melakukan `commit` "Tugas 3" dengan perintah 
 ```bash
-git commit -m "Tugas 4"
+git commit -m "Tugas 3"
 ``` 
 dan yang terakhir melakukan `push` ke repository GitHub dengan perintah
 ```bash
@@ -487,7 +487,10 @@ Penggunaan dari cookies dalam sebuah pengembangan web tidak selalu aman secara d
 
 <h2>Mengaktifkan Virtual Environment</h2>
 
-Sebelum melakukan perubahan pada program dan melakukan implementasi checklist kita harus mengaktifkan `virtual environment` agar tidak terjadi penumpukan dari proyek yang sedang dijalankan. Proses untuk mengaktifkan virtual environment pada proyek dapat dilakukan dengan `env\Scripts\activate.bat`.
+Sebelum melakukan perubahan pada program dan melakukan implementasi checklist kita harus mengaktifkan `virtual environment` agar tidak terjadi penumpukan dari proyek yang sedang dijalankan. Proses untuk mengaktifkan virtual environment pada proyek dapat dilakukan dengan 
+```bash
+env\Scripts\activate.bat
+```
 
 <h2>Implementasi Fungsi Registrasi, Login, dan Logout</h2>
 
@@ -665,6 +668,7 @@ Untuk memastikan kinerja dari program berjalan dengan baik, maka saya melakukan 
 <h3>Akun 1</h3>
 
 username : mu_mu
+
 password : mumu1234
 
 Tampilan Website 
@@ -673,6 +677,7 @@ Tampilan Website
 <h3>Akun 2</h3>
 
 username : miawiw_
+
 password : pbp12345
 
 Tampilan Website
