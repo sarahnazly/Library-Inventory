@@ -34,6 +34,17 @@ def items(request) :
     
     return render(request, 'items.html', context)
 
+def book_views(request):
+    books = Item.objects.filter(user=request.user)
+
+    context = {
+        'name' : request.user.username,
+        'class' : 'PBP - A',
+        'books': books,
+    }
+
+    return render(request, 'books.html', context)
+
 # Fungsi form peminjaman buku
 def added_books(request):
     form = ItemForm(request.POST or None)
@@ -108,16 +119,28 @@ def add_stock(request, item_id):
     item = get_object_or_404(Item, pk=item_id)
     item.amount += 1
     item.save()
-    return redirect('main:items')
+    return redirect('main:books')
 
 def reduce_stock(request, item_id):
     item = get_object_or_404(Item, pk=item_id)
     if item.amount > 0:
         item.amount -= 1
         item.save()
-    return redirect('main:items')
+    return redirect('main:books')
+
+def edit_books(request, item_id):
+    books = Item.objects.get(pk=item_id)
+
+    form = ItemForm(request.POST or None, instance=books)
+
+    if form.is_valid() and request.method == 'POST' :
+        form.save()
+        return HttpResponseRedirect(reverse('main:items'))
+    
+    context = {'form': form}
+    return render(request, "edit_books.html", context)
 
 def delete_item(request, item_id):
     item = get_object_or_404(Item, pk=item_id)
     item.delete()
-    return redirect('main:items')
+    return redirect('main:books')
