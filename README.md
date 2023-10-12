@@ -1303,3 +1303,140 @@ git push -u origin main
 - https://www.geeksforgeeks.org/tailwind-css-vs-bootstrap/
 
 </details>
+
+<details>
+
+<summary> Tugas 6 </summary>
+
+<h1>Perbedaan Antara Asynchronous Programming dengan Synchronous Programming</h1>
+
+Asynchronous dan Synchronous adalah dua pendekatan yang berbeda dalam cara mengelola eksekusi kode dalam suatu program.
+
+Asynchronous programming adalah program dengan pendekatan yang tidak terikat pada input output (I/O) protocol. Pemrograman asynchronous tidak melakukan pekerjaannya dengan cara mengeksekusi baris program satu per satu secara hirarki. Asynchronous programming melakukan proses pekerjaannya dengan independent, sehingga waktu eksekusi yang dilakukannya lebih singkat dan cepat.
+
+Synchronous programming merupakan pendekatan yang lebih *old style*. Pada pendekatan ini, task akan dieksekusi secara satu per satu sesuai dengan urutan dan prioritas masing-masing task. Hal tersebut akan membuat eksekusi menjadi lebih lama karena masing-masing task harus menunggu task lain selesai untuk diproses.
+
+<h1>Event Driven Programming</h1>
+
+Paradigma event-driven programming merupakan paradigma pemrograman yang berfokus pada penanganan event atau kejadian yang terjadi dalam program, seperti input dari user, mouse click, keyboard, respons dari server, dan lainnya. Paradigma tersebut memungkinkan program untuk berinteraksi dengan user dan lingkungan secara dinamis dan responsif.
+
+Penerapan paradigma event-driven programming pada tugas ini adalah ................
+
+<h1>Penerapan Asynchronous Programming pada AJAX</h1>
+
+AJAX atau Asynchronous Javascript and XML yang mengacu pada sekumpulan teknis dari web development yang memungkinkan aplikasi web untuk bekerja secara asynchronous dalam memproses setiap request yang datang ke server. Aplikasi web yang menerapkan AJAX dapat mengirim dan menerima data dari server tanpa harus melakukan reload atau refresh keseluruhan halaman.Penerapan dari asynchronous AJAX ini dapat melakukan proses request user dan menerima respon tanpa mengganggu pengalaman pengguna.
+
+<h1>Perbandingan Penerapan AJAX dengan Menggunakan Fetch API dan jQuery</h1>
+
+Fetch API dan jQuery adalah dua teknologi yang sering diterapkan dalam AJAX. Fetch merupakan cara baru dalam melakukan network request yang mana fetch akan mengembalikan sebuah promise yang secara default, fetch tidak akan mengirim atau menerima cookie dari server. jQuery adalah library yang menyediakan fungsi AJAX yang disederhanakan dari fungsi bawaan AJAX yang sudah tertanam pada browser.
+
+<h1>Implementasi Langkah</h1>
+
+<h2>Mengubah Kode Cards Data Item agar Mendukung AJAX GET dan Melakukan Pengembalian Task Menggunakan AJAX GET</h2>
+
+<h2>Membuat Tombol yang Membuka Modal Form dan Membuat Modal Form</h2>
+
+Untuk mengubah fungsi add books pada Tugas 5 dengan AJAX, maka saya mengganti button `Add Books` dengan `Add Book by AJAX`
+```html
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Book by AJAX</button>
+```
+Button tersebut memiliki value `data-bs-toggle=modal` dan `data-bs-target=#exampleModal` yang berfungsi untuk membuka modal form yang memiliki id `#exampleModal`
+
+Berikut adalah kode untuk menampilkan modal dengan form menambahkan item
+```html
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Add New Book</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="form" onsubmit="return false;">
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                <label for="name" class="col-form-label">Name:</label>
+                                <input type="text" class="form-control" id="name" name="name"></input>
+                            </div>
+                            <div class="mb-3">
+                                <label for="category" class="col-form-label">Category:</label>
+                                <input type="text" class="form-control" id="category" name="category"></input>
+                            </div>
+                            <div class="mb-3">
+                                <label for="amount" class="col-form-label">Amount:</label>
+                                <input type="number" class="form-control" id="amount" name="amount"></input>
+                            </div>
+                            <div class="mb-3">
+                                <label for="description" class="col-form-label">Description:</label>
+                                <textarea class="form-control" id="description" name="description"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" id="button_add" data-bs-dismiss="modal">Add Product</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+```
+
+<h2>Fungsi Views untuk Menambahkan Item Baru</h2>
+
+Untuk membuat object book baru dengan parameter request, saya membuat fungsi baru dalam `views.py`
+```python
+@csrf_exempt
+def add_book_ajax(request):
+    if request.method == 'POST':
+        name = request.POST.get("name")
+        category = request.POST.get("category")
+        amount = request.POST.get("amount")
+        description = request.POST.get("description")
+        user = request.user
+
+        new_book = Item(name=name, category=category, amount=amount, description=description, user=user)
+        new_book.save()
+
+        return HttpResponse(b"CREATED", status=201)
+
+    return HttpResponseNotFound()
+```
+
+<h2>Menghubungkan Form ke Path</h2>
+
+Agar program dapat mengakses fungsi baru untuk menambahkan object books, maka perlu dilakukan routing pada `urls.py` dengan menambahkan `urlpatterns` berikut
+```python
+path('create-book-ajax/', views.add_book_ajax, name='add_book_ajax'),
+```
+
+<h2>Melakukan Refresh Tanpa Reload</h2>
+
+<h2>Melakukan Perintah Collectstatic</h2>
+
+Untuk menjalankan perintah collectstatic dari Django dapat dilakukan dengan melakukan `push` kode ke server penyebaran dan kemudian menjalankan perintah berikut 
+```bash
+./manage.py collecstatic -v0 --noinput
+```
+
+<h2>Melakukan Add, Commit, dan Push ke GitHub</h2>
+
+Kita dapat melakukan `add` dari semua file yang diperbarui dengan perintah 
+```bash
+git add .
+``` 
+kemudian melakukan `commit` "Tugas 6" dengan perintah 
+```bash
+git commit -m "Tugas 6"
+``` 
+dan yang terakhir melakukan `push` ke repository GitHub dengan perintah
+```bash
+git push -u origin main
+```
+
+<h2>Bonus</h2>
+
+
+
+<h1>Referensi</h1>
+
+- https://pbp-fasilkom-ui.github.io/ganjil-2024/docs/tutorial-5

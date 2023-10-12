@@ -1,5 +1,5 @@
 import datetime
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponseNotFound
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
@@ -14,6 +14,7 @@ from main.forms import ItemForm, Item
 from django.urls import reverse
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404, redirect
+from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 @login_required(login_url='/login')
@@ -144,3 +145,23 @@ def delete_item(request, item_id):
     item = get_object_or_404(Item, pk=item_id)
     item.delete()
     return redirect('main:books')
+
+def get_book_json(request):
+    books_item = Item.objects.all()
+    return HttpResponse(serializers.serialize('json', books_item))
+
+@csrf_exempt
+def add_book_ajax(request):
+    if request.method == 'POST':
+        name = request.POST.get("name")
+        category = request.POST.get("category")
+        amount = request.POST.get("amount")
+        description = request.POST.get("description")
+        user = request.user
+
+        new_book = Item(name=name, category=category, amount=amount, description=description, user=user)
+        new_book.save()
+
+        return HttpResponse(b"CREATED", status=201)
+
+    return HttpResponseNotFound()
