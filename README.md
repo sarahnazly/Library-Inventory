@@ -1356,7 +1356,6 @@ Kita akan memindahkan bagan cards untuk setiap item dari books ke dalam `<script
         
                     <div class="card">
                         <div class="card-header">
-                            <img style="width:100px; margin-top:10px;" src="https://lh3.googleusercontent.com/pw/ADCreHfkIeokz0FjQI90DVgYpfiAc2Ny6frrIKrX0LfhAZDmulQm2ziGw1actsb4O5vDS4IpYhR80ZBwrTBrAPJI04FBO8x00j7T1xnmktZLodyU73gAKEEhvzdmjFjMM5N5FBu_ZOl6MjEvOVuAlcW8CGJb0Bbk4JQcdYiSZCwbMtOlxtKQAqvIP-viTFx6UC5rl4YA4tdxUM5wQ1MR1h-xzxBBjqtFJzaGfUpmiB7fWKeefuUsPDfk73AJF6XJA69BiWs01MtTs_gi3Ceg_hHMY5yBLsHcsES321Pcg2pAH1sHGAxmSMuZOt6WOctMPuFio1lN4sBoHO_bs_lWrA9zXPuXcn8f-AUbsjM5b-8ARXLu4X0-xzir0Uw198wYyd1MmLwbTn56CRvalH6aKnAZmQ-pOOA_DWyVZrNZK9lQwU-9HXflUx73mbuyToN_si9YDr0KKahohhxAsVMyXeMm0jiVow055AqHfVTI_k17qawLs7pmiM1HCYt3LxC5g6nb1s-CsXmQRstm7BdM8M_F9ay8UKngzw2qTN3YD5MsuSFlLtt67DZ_GLZesRUS_E8H1ErcrE4PK4fxHtO4FnsQE--mwuGGXMUUsTzrNHVRWflfjLdUVqDBA73om4sNzfHvmC_paN_OjuvqKo6u05gmghvqpjjoR1pexSn-LCx5KmfpUzQnNUGy8dgPum_sICXU1aoCECRXwTPJ2g4NH6xH1k2AOmEPIcdoy707iU4ru6seeEeov1425bmCjfLYL-i6Xs3iVNRiebScMwICXFVpliZ5qUtKYELTDijCr9-FC2r9cYdpimph8cgQtjZ0en5UXea3oEKaTndNz69rc5BFoOziPIc2TKGvVg-UEbQCELKmtFp926K3_trzqv2rS9-xcHp0h2ekFlQwj0H3hyA9YrASsPUVMM70DZwNDK2sEGDr2BiqWMOVjtjLVNrfq7RZh3KzFCAzojimUyxXX_sLSzBsOk8No3UrZSHiKUMmljdQ7YZUf_yFOl93AOFPNq0MhBuv0tVwdvFiW1lCstjZaZG9xToy-YGU_B8EE4R9gw=w959-h753-s-no?authuser=2"/>
                             <h2>${item.name}</h2>
                         </div>
                         <div class="card-body">
@@ -1523,7 +1522,6 @@ async function refreshBooks() {
         
                     <div class="card">
                         <div class="card-header">
-                            <img style="width:100px; margin-top:10px;" src="https://lh3.googleusercontent.com/pw/ADCreHfkIeokz0FjQI90DVgYpfiAc2Ny6frrIKrX0LfhAZDmulQm2ziGw1actsb4O5vDS4IpYhR80ZBwrTBrAPJI04FBO8x00j7T1xnmktZLodyU73gAKEEhvzdmjFjMM5N5FBu_ZOl6MjEvOVuAlcW8CGJb0Bbk4JQcdYiSZCwbMtOlxtKQAqvIP-viTFx6UC5rl4YA4tdxUM5wQ1MR1h-xzxBBjqtFJzaGfUpmiB7fWKeefuUsPDfk73AJF6XJA69BiWs01MtTs_gi3Ceg_hHMY5yBLsHcsES321Pcg2pAH1sHGAxmSMuZOt6WOctMPuFio1lN4sBoHO_bs_lWrA9zXPuXcn8f-AUbsjM5b-8ARXLu4X0-xzir0Uw198wYyd1MmLwbTn56CRvalH6aKnAZmQ-pOOA_DWyVZrNZK9lQwU-9HXflUx73mbuyToN_si9YDr0KKahohhxAsVMyXeMm0jiVow055AqHfVTI_k17qawLs7pmiM1HCYt3LxC5g6nb1s-CsXmQRstm7BdM8M_F9ay8UKngzw2qTN3YD5MsuSFlLtt67DZ_GLZesRUS_E8H1ErcrE4PK4fxHtO4FnsQE--mwuGGXMUUsTzrNHVRWflfjLdUVqDBA73om4sNzfHvmC_paN_OjuvqKo6u05gmghvqpjjoR1pexSn-LCx5KmfpUzQnNUGy8dgPum_sICXU1aoCECRXwTPJ2g4NH6xH1k2AOmEPIcdoy707iU4ru6seeEeov1425bmCjfLYL-i6Xs3iVNRiebScMwICXFVpliZ5qUtKYELTDijCr9-FC2r9cYdpimph8cgQtjZ0en5UXea3oEKaTndNz69rc5BFoOziPIc2TKGvVg-UEbQCELKmtFp926K3_trzqv2rS9-xcHp0h2ekFlQwj0H3hyA9YrASsPUVMM70DZwNDK2sEGDr2BiqWMOVjtjLVNrfq7RZh3KzFCAzojimUyxXX_sLSzBsOk8No3UrZSHiKUMmljdQ7YZUf_yFOl93AOFPNq0MhBuv0tVwdvFiW1lCstjZaZG9xToy-YGU_B8EE4R9gw=w959-h753-s-no?authuser=2"/>
                             <h2>${item.name}</h2>
                         </div>
                         <div class="card-body">
