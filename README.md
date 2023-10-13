@@ -1320,7 +1320,7 @@ Synchronous programming merupakan pendekatan yang lebih *old style*. Pada pendek
 
 Paradigma event-driven programming merupakan paradigma pemrograman yang berfokus pada penanganan event atau kejadian yang terjadi dalam program, seperti input dari user, mouse click, keyboard, respons dari server, dan lainnya. Paradigma tersebut memungkinkan program untuk berinteraksi dengan user dan lingkungan secara dinamis dan responsif.
 
-Penerapan paradigma event-driven programming pada tugas ini adalah ................
+Penerapan paradigma event-driven programming pada tugas ini terdapat pada Button Click Events, dimana ketika button delete ditekan, fungsi deleteBooks akan dijalankan untuk menghapus buku. Hal tersebut juga berlaku untuk aktivitas menambah jumlah dan mengurangi jumlah. Kemudian terdapat juga Form Submission Event yang mana memiliki atribut onsubmit untuk mencegah form dikirim secara konvensional. Setelah pengiriman form dilakukan, fungsi `addbooks` dijalankan dan memanggil `refreshBooks` dengan menggunakan fetch API untuk memperbarui tampilan buku. Terdapat DOM Manipulation yang dilakukan untuk memperbarui elemen setiap adanya peristiwa yang terjadi, kemudian dengan adanya `refreshBooks` merupakan event-driven programming karena data buku akan segera diberikan setelah halaman dimuat.
 
 <h1>Penerapan Asynchronous Programming pada AJAX</h1>
 
@@ -1582,9 +1582,9 @@ Untuk mengaplikasikan bagian bonus, saya membuat fitur delete yang menerapkan AJ
 ```html
 <script>
     ...
-    async function deleteProduct(id) {
-                    const response = await fetch(`/delete-item/${id}`);
-                    refreshBooks();
+    async function deleteBooks(id) {
+                const response = await fetch(`/delete-item/${id}`);
+                refreshBooks();
             }
     ...
 </script>
