@@ -5,7 +5,7 @@ NPM     : 2206082581
 
 Kelas   : PBP-A
 
-Link App Adaptable :  https://sarah-library.adaptable.app
+Link App Deployment :  http://sarah-nazly21-tugas.pbp.cs.ui.ac.id/
 
 <details>
 
