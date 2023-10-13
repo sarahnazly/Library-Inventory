@@ -1334,6 +1334,90 @@ Fetch API dan jQuery adalah dua teknologi yang sering diterapkan dalam AJAX. Fet
 
 <h2>Mengubah Kode Cards Data Item agar Mendukung AJAX GET dan Melakukan Pengembalian Task Menggunakan AJAX GET</h2>
 
+Kita akan memindahkan bagan cards untuk setiap item dari books ke dalam `<scripts>` untuk mengimplementasikan AJAX GET seperti berikut.
+```html
+<div id = "book_card" class="card-container"></div>
+
+...
+
+<script>
+    
+            async function getBooks() {
+                return fetch("{% url 'main:get_book_json' %}").then((res) => res.json())
+            }
+    
+             // Fungsi untuk mengambil dan memperbarui daftar buku
+            async function refreshBooks() {
+                const books = await getBooks()
+
+                let htmlString = "";
+                books.forEach((item) => {
+                    htmlString += `
+        
+                    <div class="card">
+                        <div class="card-header">
+                            <img style="width:100px; margin-top:10px;" src="https://lh3.googleusercontent.com/pw/ADCreHfkIeokz0FjQI90DVgYpfiAc2Ny6frrIKrX0LfhAZDmulQm2ziGw1actsb4O5vDS4IpYhR80ZBwrTBrAPJI04FBO8x00j7T1xnmktZLodyU73gAKEEhvzdmjFjMM5N5FBu_ZOl6MjEvOVuAlcW8CGJb0Bbk4JQcdYiSZCwbMtOlxtKQAqvIP-viTFx6UC5rl4YA4tdxUM5wQ1MR1h-xzxBBjqtFJzaGfUpmiB7fWKeefuUsPDfk73AJF6XJA69BiWs01MtTs_gi3Ceg_hHMY5yBLsHcsES321Pcg2pAH1sHGAxmSMuZOt6WOctMPuFio1lN4sBoHO_bs_lWrA9zXPuXcn8f-AUbsjM5b-8ARXLu4X0-xzir0Uw198wYyd1MmLwbTn56CRvalH6aKnAZmQ-pOOA_DWyVZrNZK9lQwU-9HXflUx73mbuyToN_si9YDr0KKahohhxAsVMyXeMm0jiVow055AqHfVTI_k17qawLs7pmiM1HCYt3LxC5g6nb1s-CsXmQRstm7BdM8M_F9ay8UKngzw2qTN3YD5MsuSFlLtt67DZ_GLZesRUS_E8H1ErcrE4PK4fxHtO4FnsQE--mwuGGXMUUsTzrNHVRWflfjLdUVqDBA73om4sNzfHvmC_paN_OjuvqKo6u05gmghvqpjjoR1pexSn-LCx5KmfpUzQnNUGy8dgPum_sICXU1aoCECRXwTPJ2g4NH6xH1k2AOmEPIcdoy707iU4ru6seeEeov1425bmCjfLYL-i6Xs3iVNRiebScMwICXFVpliZ5qUtKYELTDijCr9-FC2r9cYdpimph8cgQtjZ0en5UXea3oEKaTndNz69rc5BFoOziPIc2TKGvVg-UEbQCELKmtFp926K3_trzqv2rS9-xcHp0h2ekFlQwj0H3hyA9YrASsPUVMM70DZwNDK2sEGDr2BiqWMOVjtjLVNrfq7RZh3KzFCAzojimUyxXX_sLSzBsOk8No3UrZSHiKUMmljdQ7YZUf_yFOl93AOFPNq0MhBuv0tVwdvFiW1lCstjZaZG9xToy-YGU_B8EE4R9gw=w959-h753-s-no?authuser=2"/>
+                            <h2>${item.name}</h2>
+                        </div>
+                        <div class="card-body">
+                            <p>Category: ${item.category}</p>
+                            <p>Description: ${item.description}</p>
+                            <p>Date Added: ${item.date_added}</p>
+                            <p>Amount:</p>
+                            <div class="btn-container">
+                                <button onclick="decrementAmount(${item.pk})" class="btn-minus">-</button>
+                                <span id="amount${item.pk}" class="text-lg font-semibold">${item.amount}</span>
+                                <button onclick="incrementAmount(${item.pk})" class="btn-plus">+</button>
+                            </div>
+                            <div class="card-actions">
+                                <p class="edit-btn" style="width:100px; text-align=center; padding-right:10px">
+                                    <a href="${item.edit_url}">Edit</a>
+                                </p>
+                                <p class="delete-btn">
+                                    <button onclick="deleteProduct(${item.pk})" class="delete-btn" style="width:100px; text-align=center; padding-right:10px; background-color: red; border-color: none; border-radius:5px; color:white">Delete</button>>
+                                </p>
+                            </div>  
+                        </div>
+                    </div>`;
+                });
+
+                document.getElementById("book_card").innerHTML = htmlString;
+                
+            }
+
+            async function incrementAmount(id) {
+                const response = await fetch(`/add-stock/${id}`);
+                refreshBooks();
+            }
+
+            async function decrementAmount(id) {
+                const response = await fetch(`/reduce-stock/${id}`);
+                refreshBooks();
+            }
+
+            async function deleteProduct(id) {
+                const response = await fetch(`/delete-item/${id}`);
+                refreshBooks();
+            }
+    
+            // Panggil fungsi refreshBooks untuk mengisi daftar buku awal saat halaman dimuat
+            refreshBooks();
+    
+            function addBooks() {
+                fetch("{% url 'main:add_book_ajax' %}", {
+                    method: "POST",
+                    body: new FormData(document.querySelector('#form'))
+                }).then(refreshBooks)
+    
+                document.getElementById("form").reset()
+                return false
+            }
+            document.getElementById("button_add").onclick = addBooks
+
+
+        </script>
+```
+
 <h2>Membuat Tombol yang Membuka Modal Form dan Membuat Modal Form</h2>
 
 Untuk mengubah fungsi add books pada Tugas 5 dengan AJAX, maka saya mengganti button `Add Books` dengan `Add Book by AJAX`
@@ -1380,6 +1464,23 @@ Berikut adalah kode untuk menampilkan modal dengan form menambahkan item
             </div>
         </div>
 ```
+Hal tersebut didukung dengan function`addBooks()` pada scripts seperti berikut.
+```html
+<script>
+    ...
+
+    function addBooks() {
+                    fetch("{% url 'main:add_book_ajax' %}", {
+                        method: "POST",
+                        body: new FormData(document.querySelector('#form'))
+                    }).then(refreshBooks)
+        
+                    document.getElementById("form").reset()
+                    return false
+                }
+            document.getElementById("button_add").onclick = addBooks
+</script>
+```
 
 <h2>Fungsi Views untuk Menambahkan Item Baru</h2>
 
@@ -1411,11 +1512,52 @@ path('create-book-ajax/', views.add_book_ajax, name='add_book_ajax'),
 
 <h2>Melakukan Refresh Tanpa Reload</h2>
 
+Untuk melengkapi penerapan AJAX maka perlu ditambahkan fungsi asynchronous agar halaman dapat melakukan reload secara asynchronous seperti berikut
+```html
+async function refreshBooks() {
+                const books = await getBooks()
+
+                let htmlString = "";
+                books.forEach((item) => {
+                    htmlString += `
+        
+                    <div class="card">
+                        <div class="card-header">
+                            <img style="width:100px; margin-top:10px;" src="https://lh3.googleusercontent.com/pw/ADCreHfkIeokz0FjQI90DVgYpfiAc2Ny6frrIKrX0LfhAZDmulQm2ziGw1actsb4O5vDS4IpYhR80ZBwrTBrAPJI04FBO8x00j7T1xnmktZLodyU73gAKEEhvzdmjFjMM5N5FBu_ZOl6MjEvOVuAlcW8CGJb0Bbk4JQcdYiSZCwbMtOlxtKQAqvIP-viTFx6UC5rl4YA4tdxUM5wQ1MR1h-xzxBBjqtFJzaGfUpmiB7fWKeefuUsPDfk73AJF6XJA69BiWs01MtTs_gi3Ceg_hHMY5yBLsHcsES321Pcg2pAH1sHGAxmSMuZOt6WOctMPuFio1lN4sBoHO_bs_lWrA9zXPuXcn8f-AUbsjM5b-8ARXLu4X0-xzir0Uw198wYyd1MmLwbTn56CRvalH6aKnAZmQ-pOOA_DWyVZrNZK9lQwU-9HXflUx73mbuyToN_si9YDr0KKahohhxAsVMyXeMm0jiVow055AqHfVTI_k17qawLs7pmiM1HCYt3LxC5g6nb1s-CsXmQRstm7BdM8M_F9ay8UKngzw2qTN3YD5MsuSFlLtt67DZ_GLZesRUS_E8H1ErcrE4PK4fxHtO4FnsQE--mwuGGXMUUsTzrNHVRWflfjLdUVqDBA73om4sNzfHvmC_paN_OjuvqKo6u05gmghvqpjjoR1pexSn-LCx5KmfpUzQnNUGy8dgPum_sICXU1aoCECRXwTPJ2g4NH6xH1k2AOmEPIcdoy707iU4ru6seeEeov1425bmCjfLYL-i6Xs3iVNRiebScMwICXFVpliZ5qUtKYELTDijCr9-FC2r9cYdpimph8cgQtjZ0en5UXea3oEKaTndNz69rc5BFoOziPIc2TKGvVg-UEbQCELKmtFp926K3_trzqv2rS9-xcHp0h2ekFlQwj0H3hyA9YrASsPUVMM70DZwNDK2sEGDr2BiqWMOVjtjLVNrfq7RZh3KzFCAzojimUyxXX_sLSzBsOk8No3UrZSHiKUMmljdQ7YZUf_yFOl93AOFPNq0MhBuv0tVwdvFiW1lCstjZaZG9xToy-YGU_B8EE4R9gw=w959-h753-s-no?authuser=2"/>
+                            <h2>${item.name}</h2>
+                        </div>
+                        <div class="card-body">
+                            <p>Category: ${item.category}</p>
+                            <p>Description: ${item.description}</p>
+                            <p>Date Added: ${item.date_added}</p>
+                            <p>Amount:</p>
+                            <div class="btn-container">
+                                <button onclick="decrementAmount(${item.pk})" class="btn-minus">-</button>
+                                <span id="amount${item.pk}" class="text-lg font-semibold">${item.amount}</span>
+                                <button onclick="incrementAmount(${item.pk})" class="btn-plus">+</button>
+                            </div>
+                            <div class="card-actions">
+                                <p class="edit-btn" style="width:100px; text-align=center; padding-right:10px">
+                                    <a href="${item.edit_url}">Edit</a>
+                                </p>
+                                <p class="delete-btn">
+                                    <button onclick="deleteProduct(${item.pk})" class="delete-btn" style="width:100px; text-align=center; padding-right:10px; background-color: red; border-color: none; border-radius:5px; color:white">Delete</button>>
+                                </p>
+                            </div>  
+                        </div>
+                    </div>`;
+                });
+
+                document.getElementById("book_card").innerHTML = htmlString;
+                
+            }
+```
+
 <h2>Melakukan Perintah Collectstatic</h2>
 
 Untuk menjalankan perintah collectstatic dari Django dapat dilakukan dengan melakukan `push` kode ke server penyebaran dan kemudian menjalankan perintah berikut 
 ```bash
-./manage.py collecstatic -v0 --noinput
+python manage.py collectstatic
 ```
 
 <h2>Melakukan Add, Commit, dan Push ke GitHub</h2>
@@ -1435,8 +1577,17 @@ git push -u origin main
 
 <h2>Bonus</h2>
 
+Untuk mengaplikasikan bagian bonus, saya membuat fitur delete yang menerapkan AJAX
 
+```html
+<script>
+    ...
+    async function deleteProduct(id) {
+                    const response = await fetch(`/delete-item/${id}`);
+                    refreshBooks();
+            }
+    ...
+</script>
+```
 
-<h1>Referensi</h1>
-
-- https://pbp-fasilkom-ui.github.io/ganjil-2024/docs/tutorial-5
+</details>

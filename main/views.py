@@ -1,5 +1,5 @@
 import datetime
-from django.http import HttpResponseRedirect, HttpResponseNotFound
+from django.http import HttpResponseRedirect, HttpResponseNotFound, JsonResponse
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
@@ -147,8 +147,22 @@ def delete_item(request, item_id):
     return redirect('main:books')
 
 def get_book_json(request):
-    books_item = Item.objects.all()
-    return HttpResponse(serializers.serialize('json', books_item))
+    items = Item.objects.filter(user=request.user)
+    items_list = []
+    for item in items:
+        item_dict = {
+            'pk': item.pk,
+            'name': item.name,
+            'description': item.description,
+            'amount': item.amount,
+            'category': item.category,
+            'date_added' : item.date_added,
+            'edit_url': reverse('main:edit-books', args=[item.pk]),
+            'delete_url': reverse('main:delete-item', args=[item.pk]),
+        }
+        items_list.append(item_dict)
+    return JsonResponse(items_list, safe=False)
+
 
 @csrf_exempt
 def add_book_ajax(request):

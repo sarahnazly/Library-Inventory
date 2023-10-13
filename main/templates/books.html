@@ -3,13 +3,14 @@
 {% load static %}
 <head>
     <link rel="stylesheet" type="text/css" href="{% static 'main/style.css' %}">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 </head>
 
 {% block content %}
     <nav class="navbar">
         <div class="navbar-left">
             <span class="navbar-brand">
-                <img style="width: 30px;" src = "https://lh3.googleusercontent.com/pw/ADCreHe1qjRWK9HvCHOf87BEQkjoNVxtd4Tz1Mpqfns1FvKd_5lLK02XcmmK3TqAHdTpopJfXpK2AQyxRaC74o_VWGiKPdhSATM64hCRX1l6_0J4RoFfVP9hK6W3ribzQBvneAygurks-zsX2yW0VkHB3l5CiRGjcl9Jv5dFIufC0ewlZebzcr2zep08KIwDuo6DIk8hswl0oE7fOzN2zgj7ipnhT15RLYLXbbsMOF95vM2epkDgFmFoRPDYMZd2K9sLSEHCA79ugOfoVZ5MC_q4Zd077qPWh2Uw_ZVchHzBLSIKkwYTQAhb9pjF2PJJZlF0Sm46uOB841ncWLcDgJMwV-dfwaLqsd-UO98j1ThbLc6Oa02cjEP3E_9Mo_ZFr8t2bfmgSEQ8rbetixVq9Drgw5hY8G2jS3ZyjzY_nHbGP-WXhYj8K0gj30zVzwejEkDagKgHgdsxhNc8iTvBaXp1ZuXjtL9s4Uzaw4k7L6t12lCBWOAmpOmY9WrsDJyamiHrSxvBuaDxWD5I9NSvImmW4QJ-mvByus8dXgpoF33ZSbz79r2CDtsjAK_YAc83mSQ14sjls7HpPI_rPPs42IAzQViPMmCjyA8gyGWD-exQ5QcTyCBg0GQ-CSBIjRI4kVJNBNqr2pReIVfyRqDpBMvWcj28ZfeEA9btqgeRAb6gYOcTJkJHBm4l6A099XxJtCtsUD21X3M3LxB_I1nn3bRQnDNGB8mvA_O9N-OF0USdBjEcqPgqDVQW3KFC1Ix6sWBnP3hN7YA9Eyv4eGelTNHEf5Sl4uyLrTFXlZhhXmePlof4PIeKMz7JfM3RwkqRA4kzm4Zpi04iKovhSVJZfevFt5_xQyqmMQDcJtNq7ujWsDlFBEcN2pqSU3yv0FBRoDoamnqWzo2930CgZdYlgOPB21eWx07NNQIYQ9OjhH94tLOxIUAgi_AkxAc8B01GNj2BGmB9Df3ECFH91ZDMr0VVOMNo_q2BgBJkys21CS6xoY3q7p15pX5qd_iswqB85E9wuDOevdOpSkwGjC2eurWErPQgwEL2aQNtXwNzwsGy4g=w959-h774-s-no?authuser=2"/>
+                <img style="width: 40px;" src = "https://lh3.googleusercontent.com/pw/ADCreHe1qjRWK9HvCHOf87BEQkjoNVxtd4Tz1Mpqfns1FvKd_5lLK02XcmmK3TqAHdTpopJfXpK2AQyxRaC74o_VWGiKPdhSATM64hCRX1l6_0J4RoFfVP9hK6W3ribzQBvneAygurks-zsX2yW0VkHB3l5CiRGjcl9Jv5dFIufC0ewlZebzcr2zep08KIwDuo6DIk8hswl0oE7fOzN2zgj7ipnhT15RLYLXbbsMOF95vM2epkDgFmFoRPDYMZd2K9sLSEHCA79ugOfoVZ5MC_q4Zd077qPWh2Uw_ZVchHzBLSIKkwYTQAhb9pjF2PJJZlF0Sm46uOB841ncWLcDgJMwV-dfwaLqsd-UO98j1ThbLc6Oa02cjEP3E_9Mo_ZFr8t2bfmgSEQ8rbetixVq9Drgw5hY8G2jS3ZyjzY_nHbGP-WXhYj8K0gj30zVzwejEkDagKgHgdsxhNc8iTvBaXp1ZuXjtL9s4Uzaw4k7L6t12lCBWOAmpOmY9WrsDJyamiHrSxvBuaDxWD5I9NSvImmW4QJ-mvByus8dXgpoF33ZSbz79r2CDtsjAK_YAc83mSQ14sjls7HpPI_rPPs42IAzQViPMmCjyA8gyGWD-exQ5QcTyCBg0GQ-CSBIjRI4kVJNBNqr2pReIVfyRqDpBMvWcj28ZfeEA9btqgeRAb6gYOcTJkJHBm4l6A099XxJtCtsUD21X3M3LxB_I1nn3bRQnDNGB8mvA_O9N-OF0USdBjEcqPgqDVQW3KFC1Ix6sWBnP3hN7YA9Eyv4eGelTNHEf5Sl4uyLrTFXlZhhXmePlof4PIeKMz7JfM3RwkqRA4kzm4Zpi04iKovhSVJZfevFt5_xQyqmMQDcJtNq7ujWsDlFBEcN2pqSU3yv0FBRoDoamnqWzo2930CgZdYlgOPB21eWx07NNQIYQ9OjhH94tLOxIUAgi_AkxAc8B01GNj2BGmB9Df3ECFH91ZDMr0VVOMNo_q2BgBJkys21CS6xoY3q7p15pX5qd_iswqB85E9wuDOevdOpSkwGjC2eurWErPQgwEL2aQNtXwNzwsGy4g=w959-h774-s-no?authuser=2"/>
                 Library Inventory</span>
         </div>
         <div class="navbar-center">
@@ -41,42 +42,7 @@
     <body>
         <div id="book_list" class="container">
             <h1>Book List</h1>
-            <div class="card-container">
-                {% for item in books %}
-                    <div class="card">
-                        <div class="card-header">
-                            <img style="width:100px; margin-top:10px;" src="https://lh3.googleusercontent.com/pw/ADCreHfkIeokz0FjQI90DVgYpfiAc2Ny6frrIKrX0LfhAZDmulQm2ziGw1actsb4O5vDS4IpYhR80ZBwrTBrAPJI04FBO8x00j7T1xnmktZLodyU73gAKEEhvzdmjFjMM5N5FBu_ZOl6MjEvOVuAlcW8CGJb0Bbk4JQcdYiSZCwbMtOlxtKQAqvIP-viTFx6UC5rl4YA4tdxUM5wQ1MR1h-xzxBBjqtFJzaGfUpmiB7fWKeefuUsPDfk73AJF6XJA69BiWs01MtTs_gi3Ceg_hHMY5yBLsHcsES321Pcg2pAH1sHGAxmSMuZOt6WOctMPuFio1lN4sBoHO_bs_lWrA9zXPuXcn8f-AUbsjM5b-8ARXLu4X0-xzir0Uw198wYyd1MmLwbTn56CRvalH6aKnAZmQ-pOOA_DWyVZrNZK9lQwU-9HXflUx73mbuyToN_si9YDr0KKahohhxAsVMyXeMm0jiVow055AqHfVTI_k17qawLs7pmiM1HCYt3LxC5g6nb1s-CsXmQRstm7BdM8M_F9ay8UKngzw2qTN3YD5MsuSFlLtt67DZ_GLZesRUS_E8H1ErcrE4PK4fxHtO4FnsQE--mwuGGXMUUsTzrNHVRWflfjLdUVqDBA73om4sNzfHvmC_paN_OjuvqKo6u05gmghvqpjjoR1pexSn-LCx5KmfpUzQnNUGy8dgPum_sICXU1aoCECRXwTPJ2g4NH6xH1k2AOmEPIcdoy707iU4ru6seeEeov1425bmCjfLYL-i6Xs3iVNRiebScMwICXFVpliZ5qUtKYELTDijCr9-FC2r9cYdpimph8cgQtjZ0en5UXea3oEKaTndNz69rc5BFoOziPIc2TKGvVg-UEbQCELKmtFp926K3_trzqv2rS9-xcHp0h2ekFlQwj0H3hyA9YrASsPUVMM70DZwNDK2sEGDr2BiqWMOVjtjLVNrfq7RZh3KzFCAzojimUyxXX_sLSzBsOk8No3UrZSHiKUMmljdQ7YZUf_yFOl93AOFPNq0MhBuv0tVwdvFiW1lCstjZaZG9xToy-YGU_B8EE4R9gw=w959-h753-s-no?authuser=2"/>
-                            <h2>{{ item.name }}</h2>
-                        </div>
-                        <div class="card-body">
-                            <p>Category: {{ item.category }}</p>
-                            <p>Description: {{ item.description }}</p>
-                            <p>Date Added: {{ item.date_added }}</p>
-                            <p>Amount:</p>
-                            <div class="btn-container">
-                                <form method="POST" action="{% url 'main:reduce-stock' item.id %}">
-                                    {% csrf_token %}
-                                    <button type="submit" class="btn-minus">-</button>
-                                </form>
-                                <div class="amount">{{ item.amount }}</div>
-                                <form method="POST" action="{% url 'main:add-stock' item.id %}">
-                                    {% csrf_token %}
-                                    <button type="submit" class="btn-plus">+</button>
-                                </form>
-                            </div>
-                            <div class="card-actions">
-                                <p class="edit-btn">
-                                    <a href="{% url 'main:edit-books' item.id %}">Edit</a>
-                                </p>
-                                <p class="delete-btn">
-                                    <a href="{% url 'main:delete-item' item.id %}">Delete</a>
-                                </p>
-                            </div>  
-                        </div>
-                    </div>
-                {% endfor %}
-            </div>
-            
+            <div id = "book_card" class="card-container"></div>
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Book by AJAX</button>
         </div>
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -116,35 +82,6 @@
         </div>
 
         <script>
-            async function addBookByAjax() {
-                console.log("Button clicked");
-                const formData = new FormData(document.querySelector('#form'));
-                console.log(formData);
-
-                try {
-                    const response = await fetch("{% url 'main:add_book_ajax' %}", {
-                        method: "POST",
-                        body: formData,
-                    });
-    
-                    if (response.ok) {
-                        // Berhasil menambahkan buku, perbarui daftar buku
-                        refreshBooks();
-    
-                        // Reset form
-                        document.getElementById("form").reset();
-    
-                        // Tutup modal
-                        $('#exampleModal').modal('hide');
-                    } else {
-                        console.error("Gagal menambahkan buku");
-                    }
-                } catch (error) {
-                    console.error(error);
-                }
-            }
-    
-            document.getElementById("button_add").onclick = addBookByAjax;
     
             async function getBooks() {
                 return fetch("{% url 'main:get_book_json' %}").then((res) => res.json())
@@ -152,34 +89,56 @@
     
              // Fungsi untuk mengambil dan memperbarui daftar buku
             async function refreshBooks() {
-                document.getElementById("product_table").innerHTML = "";
-    
-                try {
-                    const response = await fetch("{% url 'main:get_book_json' %}");
-                    const books = await response.json();
-    
-                    let htmlString = `<tr>
-                        <th>Name</th>
-                        <th>Category</th>
-                        <th>Description</th>
-                        <th>Amount</th>
-                        <th>Date Added</th>
-                    </tr>`;
-    
-                    books.forEach((item) => {
-                        htmlString += `<tr>
-                            <td>${item.fields.name}</td>
-                            <td>${item.fields.category}</td>
-                            <td>${item.fields.description}</td>
-                            <td>${item.fields.amount}</td>
-                            <td>${item.fields.date_added}</td>
-                        </tr>`;
-                    });
-    
-                    document.getElementById("product_table").innerHTML = htmlString;
-                } catch (error) {
-                    console.error(error);
-                }
+                const books = await getBooks()
+
+                let htmlString = "";
+                books.forEach((item) => {
+                    htmlString += `
+        
+                    <div class="card">
+                        <div class="card-header">
+                            <img style="width:100px; margin-top:10px;" src="https://lh3.googleusercontent.com/pw/ADCreHfkIeokz0FjQI90DVgYpfiAc2Ny6frrIKrX0LfhAZDmulQm2ziGw1actsb4O5vDS4IpYhR80ZBwrTBrAPJI04FBO8x00j7T1xnmktZLodyU73gAKEEhvzdmjFjMM5N5FBu_ZOl6MjEvOVuAlcW8CGJb0Bbk4JQcdYiSZCwbMtOlxtKQAqvIP-viTFx6UC5rl4YA4tdxUM5wQ1MR1h-xzxBBjqtFJzaGfUpmiB7fWKeefuUsPDfk73AJF6XJA69BiWs01MtTs_gi3Ceg_hHMY5yBLsHcsES321Pcg2pAH1sHGAxmSMuZOt6WOctMPuFio1lN4sBoHO_bs_lWrA9zXPuXcn8f-AUbsjM5b-8ARXLu4X0-xzir0Uw198wYyd1MmLwbTn56CRvalH6aKnAZmQ-pOOA_DWyVZrNZK9lQwU-9HXflUx73mbuyToN_si9YDr0KKahohhxAsVMyXeMm0jiVow055AqHfVTI_k17qawLs7pmiM1HCYt3LxC5g6nb1s-CsXmQRstm7BdM8M_F9ay8UKngzw2qTN3YD5MsuSFlLtt67DZ_GLZesRUS_E8H1ErcrE4PK4fxHtO4FnsQE--mwuGGXMUUsTzrNHVRWflfjLdUVqDBA73om4sNzfHvmC_paN_OjuvqKo6u05gmghvqpjjoR1pexSn-LCx5KmfpUzQnNUGy8dgPum_sICXU1aoCECRXwTPJ2g4NH6xH1k2AOmEPIcdoy707iU4ru6seeEeov1425bmCjfLYL-i6Xs3iVNRiebScMwICXFVpliZ5qUtKYELTDijCr9-FC2r9cYdpimph8cgQtjZ0en5UXea3oEKaTndNz69rc5BFoOziPIc2TKGvVg-UEbQCELKmtFp926K3_trzqv2rS9-xcHp0h2ekFlQwj0H3hyA9YrASsPUVMM70DZwNDK2sEGDr2BiqWMOVjtjLVNrfq7RZh3KzFCAzojimUyxXX_sLSzBsOk8No3UrZSHiKUMmljdQ7YZUf_yFOl93AOFPNq0MhBuv0tVwdvFiW1lCstjZaZG9xToy-YGU_B8EE4R9gw=w959-h753-s-no?authuser=2"/>
+                            <h2>${item.name}</h2>
+                        </div>
+                        <div class="card-body">
+                            <p>Category: ${item.category}</p>
+                            <p>Description: ${item.description}</p>
+                            <p>Date Added: ${item.date_added}</p>
+                            <p>Amount:</p>
+                            <div class="btn-container">
+                                <button onclick="decrementAmount(${item.pk})" class="btn-minus">-</button>
+                                <span id="amount${item.pk}" class="text-lg font-semibold">${item.amount}</span>
+                                <button onclick="incrementAmount(${item.pk})" class="btn-plus">+</button>
+                            </div>
+                            <div class="card-actions">
+                                <p class="edit-btn" style="width:100px; text-align=center; padding-right:10px">
+                                    <a href="${item.edit_url}">Edit</a>
+                                </p>
+                                <p class="delete-btn">
+                                    <button onclick="deleteProduct(${item.pk})" class="delete-btn" style="width:100px; text-align=center; padding-right:10px; background-color: red; border-color: none; border-radius:5px; color:white">Delete</button>>
+                                </p>
+                            </div>  
+                        </div>
+                    </div>`;
+                });
+
+                document.getElementById("book_card").innerHTML = htmlString;
+                
+            }
+
+            async function incrementAmount(id) {
+                const response = await fetch(`/add-stock/${id}`);
+                refreshBooks();
+            }
+
+            async function decrementAmount(id) {
+                const response = await fetch(`/reduce-stock/${id}`);
+                refreshBooks();
+            }
+
+            async function deleteProduct(id) {
+                const response = await fetch(`/delete-item/${id}`);
+                refreshBooks();
             }
     
             // Panggil fungsi refreshBooks untuk mengisi daftar buku awal saat halaman dimuat
@@ -196,10 +155,6 @@
             }
             document.getElementById("button_add").onclick = addBooks
 
-            document.getElementById("button_add").onclick = function () {
-                console.log("Button click handler");
-                addBookByAjax();
-            };
 
         </script>
     </body>    
