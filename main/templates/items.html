@@ -10,7 +10,7 @@
 <nav class="navbar">
     <div class="navbar-left">
         <span class="navbar-brand">
-            <!-- <img style="width: 40px;" src = "https://l1nq.com/LogoLibrary"/> -->
+            <img style="width: 30px;" src = "https://lh3.googleusercontent.com/pw/ADCreHe1qjRWK9HvCHOf87BEQkjoNVxtd4Tz1Mpqfns1FvKd_5lLK02XcmmK3TqAHdTpopJfXpK2AQyxRaC74o_VWGiKPdhSATM64hCRX1l6_0J4RoFfVP9hK6W3ribzQBvneAygurks-zsX2yW0VkHB3l5CiRGjcl9Jv5dFIufC0ewlZebzcr2zep08KIwDuo6DIk8hswl0oE7fOzN2zgj7ipnhT15RLYLXbbsMOF95vM2epkDgFmFoRPDYMZd2K9sLSEHCA79ugOfoVZ5MC_q4Zd077qPWh2Uw_ZVchHzBLSIKkwYTQAhb9pjF2PJJZlF0Sm46uOB841ncWLcDgJMwV-dfwaLqsd-UO98j1ThbLc6Oa02cjEP3E_9Mo_ZFr8t2bfmgSEQ8rbetixVq9Drgw5hY8G2jS3ZyjzY_nHbGP-WXhYj8K0gj30zVzwejEkDagKgHgdsxhNc8iTvBaXp1ZuXjtL9s4Uzaw4k7L6t12lCBWOAmpOmY9WrsDJyamiHrSxvBuaDxWD5I9NSvImmW4QJ-mvByus8dXgpoF33ZSbz79r2CDtsjAK_YAc83mSQ14sjls7HpPI_rPPs42IAzQViPMmCjyA8gyGWD-exQ5QcTyCBg0GQ-CSBIjRI4kVJNBNqr2pReIVfyRqDpBMvWcj28ZfeEA9btqgeRAb6gYOcTJkJHBm4l6A099XxJtCtsUD21X3M3LxB_I1nn3bRQnDNGB8mvA_O9N-OF0USdBjEcqPgqDVQW3KFC1Ix6sWBnP3hN7YA9Eyv4eGelTNHEf5Sl4uyLrTFXlZhhXmePlof4PIeKMz7JfM3RwkqRA4kzm4Zpi04iKovhSVJZfevFt5_xQyqmMQDcJtNq7ujWsDlFBEcN2pqSU3yv0FBRoDoamnqWzo2930CgZdYlgOPB21eWx07NNQIYQ9OjhH94tLOxIUAgi_AkxAc8B01GNj2BGmB9Df3ECFH91ZDMr0VVOMNo_q2BgBJkys21CS6xoY3q7p15pX5qd_iswqB85E9wuDOevdOpSkwGjC2eurWErPQgwEL2aQNtXwNzwsGy4g=w959-h774-s-no?authuser=2"/>
             Library Inventory</span>
     </div>
     <div class="navbar-center">
@@ -28,80 +28,75 @@
     </div>
 </nav>
 
-<body>
+<div class="container">
 
-    <div class="container">
+    <header class="landing-header">
+        <h1>Library Inventory</h1>
+        <p>Your Library Management Solution</p>
+        <a href="{% url 'main:books' %}" class="cta-button">Go to Book List</a>
+    </header>
 
-        <header class="landing-header">
-            <h1>Library Inventory</h1>
-            <p>Your Library Management Solution</p>
-            <a href="{% url 'main:books' %}" class="cta-button">Go to Book List</a>
-        </header>
-
-        <section>
-            <div class="container">
-                <!-- <img style="padding-bottom: 0px; width: 400px; margin-bottom: 0;" src="https://l1nq.com/LogoLibrary"/> -->
-                <h2>About Us</h2>
-                <p>Halo aku adalah aplikasi penyimpanan buku, bukan penyimpanan lelaki ataupun wanita. Kamu bisa menggunakan aku untuk menyimpan buku
-                    tapi ga jamin bisa nyimpen rahasia yah xixi. Untuk menjalin silaturahmi agar tidak terputus, bolehkah pinjam seratus?
-                </p>
-            </div>
-        </section>
-
-        <div class="header">
-            <!-- <img style=" width:150px" src="https://encr.pw/BukuHeader"/> -->
-            <h1>Your Books</h1>
-            <h5>Username: {{ name }}</h5>
-            <h5>Class: {{ class }}</h5>
-
-            <p>Kamu telah menambahkan {{ books|length }} buku pada aplikasi ini.</p>
-
+    <section>
+        <div class="container">
+            <img style="padding-bottom: 0px; width: 400px; margin-bottom: 0;" src="https://lh3.googleusercontent.com/pw/ADCreHfrzIF5zhsJv5NkJcdpm8rnjlQnrBR7Gsp-3pqUnredkM5JH6Hda8oak-i7AigqD9dIL1pfU3Pdlw7LNaXm2w9e8UoHvoeKK7YaqtHpLbJsRk12N-Sbffx_fxhOvuLQxCqk0fVa5YLcYem08g0dQOKylrvg3VZHlKwbYnkz0YcfbF2RGyvCgkRDi6YSNauj_952NwSCNVNtVEui7PGYGQq1Q3pTDY4vCIb_8WL7CIxetoD_3aUNzaU4HPYrrM6YvrCcLgxuAyZ_vE5pI99b7cbtFjueLdHf6IDiWd0fN0JwFGVgLI8j_4gP9ujzgNcih4nRQCZ_Ddhn2b9s664bBv0Q5WxYw5B_FLzLOS_pY5q-fAtbQ10teJD8Pp12nYCE3kOCB_oyj7tv3g3toXN1Lzyh_j8jmqNzxEkD2HWyg82fq4ElE3jQq-oM6qyiDPwH97aU7WP_HSytjh9TRDHbSQbTdpfaTQwX2Tg1mBcT7HGBhkTG7coXEcm8_ItITCCAjm5NwixZZsMGONMhBpe9qyi6_tDc2tJ9Spa4n1D4vUNbt4SRevwYYbbQE3sZVy8Cuu5CrQmMGbNYnxhDJzzXlFNQS6pdyxa4R_M9YduFy8yVF3K9BEUbbqr1JayHundyQ6Ly531ODng8VBd1_lDz516mY_MAuDDd0mzfH7bf8wTrxiZn_Wc9fbJleAoWSneGduO2_EXx7dofC5-u5ph6nWhLalStd22Q7xuuW-96glhmtq1g94Uk16w1ntdt_6RiCb5BUTzpenKYWva1dRsRJ1eDzg3CDkOUz3H1tKV0Gtj3RTBvyuo4P9kGr4H1rCkG7PruwMn4zl3uH3f9eKniHX1ByPJ7L9aLfhoAbAMAv6RpdJrern6ZupbDe8iBqRsJU8cL-eFkn87Q_6ZM0qnAm-uiIRUgCsjo4NF8b0F-wdgbtatLT_HUMoP-xiiJrn97mVkTf34FDqfTfcxdM-dVF2bn-gN4FO9YHkz_w-0r0Sx_npGEbClHI_TNrqzT3MhHFbde7yr8QhDJ2suwubwoPW1Iihm7WWLCD90y6b8eEg=w1094-h884-s-no?authuser=2"/>
+            <h2>About Us</h2>
+            <p>Halo aku adalah aplikasi penyimpanan buku, bukan penyimpanan lelaki ataupun wanita. Kamu bisa menggunakan aku untuk menyimpan buku
+                tapi ga jamin bisa nyimpen rahasia yah xixi. Untuk menjalin silaturahmi agar tidak terputus, bolehkah pinjam seratus?
+            </p>
         </div>
+    </section>
 
-        
-        
-        <div class="table-container">
-            <table id="product_table">
-                <thead>
-                    <tr>
-                        <th>Book Name</th>
-                        <th>Amount</th>
-                        <th>Category</th>
-                        <th>Description</th>
-                        <th>Date Added</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for item in books %}
-                    <tr {% if forloop.last %}class="latest-book"{% endif %}>
-                        <td>{{ item.name }}</td>
-                        <td>{{ item.amount }}</td>
-                        <td>{{ item.category }}</td>
-                        <td>{{ item.description }}</td>
-                        <td>{{ item.date_added }}</td>
-                        <td class="actions">
-                            <a href="{% url 'main:edit-books' item.id %}">Edit</a>
-                        </td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
-    
-        <div class="add-book-button">
-            <a href="{% url 'main:books' %}">Books Details</a>
-        </div>
+    <div class="header">
+        <img style=" width:150px" src="https://lh3.googleusercontent.com/pw/ADCreHeHuJF-8jm9iVFGHonpEXc1IwYVDKlp2qU-erAOSTYoqIwzSAIez1ALENtyoNWsvixyQVneM-0ewrI7Pz6ym37x5ZCAn0V67l8EuncaP0d-hRaRLxu0hJG5yoID3Lk4dEr49lO358AEmeNU8zQdEN-wZT2hERmIP1qdFA0_4DSJ5Cp7hVG4ncmBuwBMcYapydaGXcWz_RYu3Ijwvx37QgvH-HXa-YeTSEq7eFHP5sKAkHg7lfFGRFCDjRPtWliHPwcbSXu1zRZBr1hbScV0ALqF7KThRDTGj5SnkFot5bkHtCdIU095lAppUoArVMQ-pmk3GQ96CFAqhcn8qvz0T7fvvYsmRvJHoLhojM2pot3iWOD_j9qIqMGOGvZ2J87nz6WqEz_jCgTmlvwnB8U_sFWpdlhuxE2JucNkMDEQ9cL6dW7QUHzGejbhJX6zZ8Mi4HjOFmJ_HUZnb-x6FfTVSz0_cMJ_wThwz3cPovd0k6VzlPod-oHOlCUV90MkihV_aJDQSft6XTY9W4uH7B8Af17ULDzdkA4SJce5jA-tBsZiRfvgXLuY34mBj6UJoZ8_6wP1VU_aH4r9k9Q4OSyE0bXANh4KWvnvQgF5CNcneqDRjf2SyK8S0URLuZe8TPSsYHZy35MnEppRv59FgqK7Xe408ZqB1Y-H1rlXdc1h0ay8FKX1ccnTbbLg6WrAyG2ufyxO_ye9pUUoKJvVCpMd_CNo0hslIB1O-vDHxYbbUxifFKGXkmVGKaG0trDxAMoOegyiOPHTJDucNnfB7XOzdg3kb_kxpLtB4eyVWkKdm76UfYasJ6CUuRGC72vMomvQBsPmPbssYwjbm-huy85bJ8uyHh1-VByNXvWukhy9M7JAHVVnxCGBocHosRkOZk-m7qKgS4jBhp-avjOl-T0IG16fMYqxusayFWUXXiiHRPCI4vfSDXPG5RzZHYqHyY_o9hEokwbN5zmarXpeKfLRxhvbOJFnTIBcFmFHuzaga_z2a64_bC6HiGIipFR0vWk-Xh49GpT7GfiZ7HLXUa30cONGxzY4GxNZm1Eed4E4UQ=w1298-h884-s-no?authuser=2"/>
+        <h1>Your Books</h1>
+        <h5>Username: {{ name }}</h5>
+        <h5>Class: {{ class }}</h5>
 
-        <h5>Sesi terakhir login: {{ last_login }}</h5>
-
-        <footer>
-            <div class="container" style="background-color: #17283c;">
-                <p>&copy; 2023 Library Inventory</p>
-            </div>
-        </footer>
+        <p>Kamu telah menambahkan {{ books|length }} buku pada aplikasi ini.</p>
 
     </div>
-</body>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Book Name</th>
+                    <th>Amount</th>
+                    <th>Category</th>
+                    <th>Description</th>
+                    <th>Date Added</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in books %}
+                <tr {% if forloop.last %}class="latest-book"{% endif %}>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.amount }}</td>
+                    <td>{{ item.category }}</td>
+                    <td>{{ item.description }}</td>
+                    <td>{{ item.date_added }}</td>
+                    <td class="actions">
+                        <a href="{% url 'main:edit-books' item.id %}">Edit</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+ 
+    <div class="add-book-button">
+        <a href="{% url 'main:books' %}">Books Details</a>
+    </div>
+
+    <h5>Sesi terakhir login: {{ last_login }}</h5>
+
+    <footer>
+        <div class="container" style="background-color: #17283c;">
+            <p>&copy; 2023 Library Inventory</p>
+        </div>
+    </footer>
+
+</div>
 
 {% endblock content %}

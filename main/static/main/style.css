@@ -9,7 +9,7 @@ body {
 
 .container {
     max-width: 1200px;
-    margin: 10 auto;
+    margin: 0 auto;
     padding: 20px;
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -153,7 +153,7 @@ section p {
 }
 
 .header {
-    margin-top: 100px;
+    margin-top: 50px;
     background-color: #283645;
     color: #fff;
     padding: 20px;
@@ -204,8 +204,7 @@ table th {
 
 .table-add {
     text-align: left;
-    margin-top: 70px;
-    padding-top: 100px;
+    margin-top: 20px;
 }
 
 form {
@@ -254,7 +253,6 @@ form {
 .actions-books {
     display: flex;
     padding-top: 10px;
-    padding-right: 10px;
     justify-content: left;
     align-items: center;
     height: 100%;
@@ -287,8 +285,8 @@ form {
     background-color: #091b40;
 }
 
-.delete-btn p{
-    padding: 10px 15px;
+.delete-btn a {
+    padding: 10px 10px;
     margin-top: 5px;
     margin-right: 10px;
     width: 75px;
@@ -303,14 +301,14 @@ form {
     text-align: right;
 }
 
-.delete-btn p::before {
+.delete-btn a::before {
     content: "\f1f8"; /* Unicode Font Awesome untuk ikon hapus (contoh) */
     font-family: 'Font Awesome 5 Free'; /* Font Awesome font family */
     font-weight: 900; /* Font weight yang sesuai */
     margin-right: 5px; /* Spasi antara ikon dan teks */
 }
 
-.delete-btn p:hover {
+.delete-btn a:hover {
     background-color: #a01800;
 }
 
@@ -333,7 +331,7 @@ form {
 .card-header {
     background-color: #283645;
     padding-top: 0px;
-    padding-bottom: 0px;
+    padding-bottom: 6px;
 }
 
 .card-header h2 {

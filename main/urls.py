@@ -16,10 +16,9 @@ urlpatterns = [
     path('register/', views.register, name='register'),
     path('login/', views.login_user, name='login'),
     path('logout/', views.logout_user, name='logout'),
-    path('reduce-stock/<int:item_id>/', views.reduce_stock, name='reduce-stock'),
     path('add-stock/<int:item_id>/', views.add_stock, name='add-stock'),
+    path('reduce-stock/<int:item_id>/', views.reduce_stock, name='reduce-stock'),
     path('edit-books/<int:item_id>/', views.edit_books, name='edit-books'),
     path('delete-item/<int:item_id>/', views.delete_item, name='delete-item'),
-    path('get-book/', views.get_book_json, name='get_book_json'),
-    path('create-book-ajax/', views.add_book_ajax, name='add_book_ajax'),
+    path('create-flutter/', views.create_product_flutter, name='create_product_flutter'),
 ]

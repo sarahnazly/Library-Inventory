@@ -1,5 +1,6 @@
 import datetime
-from django.http import HttpResponseRedirect, HttpResponseNotFound, JsonResponse
+import json
+from django.http import HttpResponseRedirect, JsonResponse
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
@@ -88,7 +89,7 @@ def register(request):
 
     if request.method == "POST":
         form = UserCreationForm(request.POST)
-        if form.is_valid():
+        if form.is_valid():           
             form.save()
             messages.success(request, 'Your account has been successfully created!')
             return redirect('main:login')
@@ -146,36 +147,21 @@ def delete_item(request, item_id):
     item.delete()
     return redirect('main:books')
 
-def get_book_json(request):
-    items = Item.objects.filter(user=request.user)
-    items_list = []
-    for item in items:
-        item_dict = {
-            'pk': item.pk,
-            'name': item.name,
-            'description': item.description,
-            'amount': item.amount,
-            'category': item.category,
-            'date_added' : item.date_added,
-            'edit_url': reverse('main:edit-books', args=[item.pk]),
-            'delete_url': reverse('main:delete-item', args=[item.pk]),
-        }
-        items_list.append(item_dict)
-    return JsonResponse(items_list, safe=False)
-
-
 @csrf_exempt
-def add_book_ajax(request):
+def create_product_flutter(request):
     if request.method == 'POST':
-        name = request.POST.get("name")
-        category = request.POST.get("category")
-        amount = request.POST.get("amount")
-        description = request.POST.get("description")
-        user = request.user
+        
+        data = json.loads(request.body)
 
-        new_book = Item(name=name, category=category, amount=amount, description=description, user=user)
-        new_book.save()
+        new_product = Item.objects.create(
+            user = request.user,
+            name = data["name"],
+            amount = int(data["amount"]),
+            description = data["description"]
+        )
 
-        return HttpResponse(b"CREATED", status=201)
+        new_product.save()
 
-    return HttpResponseNotFound()
+        return JsonResponse({"status": "success"}, status=200)
+    else:
+        return JsonResponse({"status": "error"}, status=401)
